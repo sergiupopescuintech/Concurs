@@ -391,6 +391,25 @@
           }
         }
       }
+      $(document).scroll(function() {
+
+  var scrollTop = $(window).scrollTop();
+        if (scrollTop >= 750 ) {
+            $('#s1').addClass("active");
+        }
+        else{
+            $('#s1').removeClass("active");
+        }
+        if (scrollTop >= 1600 ) {
+            $('#s2').addClass("active");
+            $('#s1').removeClass("active");
+        }
+        else{
+            $('#s2').removeClass("active");
+        }
+        
+
+});
 </script>
 
 
