@@ -27,7 +27,7 @@
         <?php
           $image = get_field('logoimg');
           if( !empty($image) ): ?>
-          	<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+          	<img class="logofirst" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
         <?php endif; ?>
       </div>
       <div class=" offset-0 col-6 offset-sm-4 col-sm-4 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-6 col-xl-2 divphone">
@@ -39,7 +39,7 @@
         <?php endif; ?>
         <a href="tel:+40770921650" class="phonenumber1"><?php the_field('number'); ?></a>
       </div>
-      <div class=" col-lg-3 col-xl-2 divbutton">
+      <div class="offset-0 col-6 offset-sm-0 col-sm-12 offset-md-0 col-md-4 offset-lg-0 col-lg-3 offset-xl-0 col-xl-2 divbutton">
         <a href="#sect4" class="button1" onclick="document.getElementById('sect4').classList.add('menupadd1');"><?php the_field('buttontext'); ?></a>
       </div>
     </div>
@@ -71,7 +71,7 @@
       <div class="abcd col-xl-2 col-lg-2 col-md-3 col-sm-3 offset-0 col-12">
         <a href="https://www.insegment.com/" target="_blank"><img src="<?php the_field('footerlogo2'); ?>" /></a>
       </div>
-      <div class="abd offset-sm-4 col-sm-5 offset-md-6 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 offset-0 col-12">
+      <div class="abd offset-sm-5 col-sm-4 offset-md-6 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 offset-0 col-12">
 
            <a href="#"><img class="iconite" src="<?php the_field('footericon1'); ?>" /></a>
            <a href="#"><img class="iconite" src="<?php the_field('footericon2'); ?>" /></a>

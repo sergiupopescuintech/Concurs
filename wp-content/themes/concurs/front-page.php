@@ -21,7 +21,7 @@
         <?php endif; ?>
         <a href="tel:+40770921650" class="phonenumber1"><?php the_field('phonenumber'); ?></a>
       </div>
-      <div class="offset-0 col-6 offset-sm-4 col-sm-6 offset-md-0 col-md-4 offset-lg-0 col-lg-3 offset-xl-0 col-xl-2 divbutton">
+      <div class="offset-0 col-6 offset-sm-0 col-sm-12 offset-md-0 col-md-4 offset-lg-0 col-lg-3 offset-xl-0 col-xl-2 divbutton">
         <a href="#sect4" class="button1" onclick="document.getElementById('sect4').classList.add('menupadd1');"><?php the_field('button1text'); ?></a>
       </div>
     </div>
@@ -51,10 +51,19 @@
                           <input class="casuteformular" type="text" name="firstname" data-parsley-field1 data-parsley-required="true" data-parsley-required-message="Please complete your first name" placeholder="First Name*:" size="30" >
                           <input class="casuteformular" type="text" name="alphanumeric" data-parsley-field2 data-parsley-required="true" data-parsley-required-message="Please complete your last name" placeholder="Last Name*:" >
                           <input class="casuteformular" type="email" name="email" data-parsley-field3 data-parsley-required="true" data-parsley-required-message="Please complete your E-mail" placeholder="E-mail*:" >
-                          <input class="casuteformular" type="tel" name="tel" data-parsley-field4  placeholder="Phone:"  >
+                          <input class="casuteformular" type="tel" name="tel" data-parsley-field4  data-parsley-required="true" data-parsley-required-message="Please complete your number" placeholder="Phone:"  >
                           <button href="http://localhost/ConcursWeb/thank-you/" class="submitbutton" type="submit" ><?php the_field('submitbuttontext'); ?></button>
                         </form>
                         <script>
+                        window.Parsley.addValidator('field4', {
+                            validateString: function(value) {
+                              var patt = new RegExp("^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$");
+                              return patt.test(value);
+                            },
+                            messages: {
+                              en:'Please enter a valid american phone number'
+                            }
+                            });
                             window.Parsley.addValidator('field1', {
                             validateString: function(value) {
                               var patt = new RegExp("^[a-zA-Z\s]+$");
@@ -75,15 +84,7 @@
                             }
                             });
 
-                            window.Parsley.addValidator('field4', {
-                            validateString: function(value) {
-                              var patt = new RegExp("^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$");
-                              return patt.test(value);
-                            },
-                            messages: {
-                              en:'Please enter a valid american phone number'
-                            }
-                            });
+
                         </script>
                   </div>
             </div>
@@ -335,7 +336,7 @@
          <div class="abcd col-xl-2 col-lg-2 col-md-3 col-sm-3 offset-0 col-12">
            <a href="https://www.insegment.com/" target="_blank"><img src="<?php the_field('footerlogo'); ?>" /></a>
          </div>
-         <div class="abd offset-sm-4 col-sm-5 offset-md-6 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 offset-0 col-12 ">
+         <div class="abd offset-sm-5 col-sm-4 offset-md-6 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 offset-0 col-12 ">
 
               <a href="#"><img class="iconite" src="<?php the_field('icon1'); ?>" /></a>
               <a href="#"><img class="iconite" src="<?php the_field('icon2'); ?>" /></a>
@@ -394,20 +395,26 @@
       $(document).scroll(function() {
 
   var scrollTop = $(window).scrollTop();
-        if (scrollTop >= 750 ) {
+        if (scrollTop >= 750 && scrollTop<1600 ) {
             $('#s1').addClass("active");
         }
         else{
             $('#s1').removeClass("active");
         }
-        if (scrollTop >= 1600 ) {
+        if (scrollTop >= 1600 && scrollTop < 2320) {
             $('#s2').addClass("active");
             $('#s1').removeClass("active");
         }
         else{
             $('#s2').removeClass("active");
         }
-        
+        if (scrollTop >= 2320 && scrollTop<3200) {
+            $('#s3').addClass("active");
+            $('#s2').removeClass("active");
+        }
+        else{
+            $('#s3').removeClass("active");
+        }
 
 });
 </script>
