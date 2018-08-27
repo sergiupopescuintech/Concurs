@@ -51,19 +51,11 @@
                           <input class="casuteformular" type="text" name="firstname" data-parsley-field1 data-parsley-required="true" data-parsley-required-message="Please complete your first name" placeholder="First Name*:" size="30" >
                           <input class="casuteformular" type="text" name="alphanumeric" data-parsley-field2 data-parsley-required="true" data-parsley-required-message="Please complete your last name" placeholder="Last Name*:" >
                           <input class="casuteformular" type="email" name="email" data-parsley-field3 data-parsley-required="true" data-parsley-required-message="Please complete your E-mail" placeholder="E-mail*:" >
-                          <input class="casuteformular" type="tel" name="tel" data-parsley-field4  data-parsley-required="true" data-parsley-required-message="Please complete your number" placeholder="Phone:"  >
-                          <button href="http://localhost/ConcursWeb/thank-you/" class="submitbutton" type="submit" ><?php the_field('submitbuttontext'); ?></button>
+                          <input class="casuteformular" type="tel" name="tel" data-parsley-field4   placeholder="Phone:"  >
+                          <button  class="submitbutton" type="submit" ><?php the_field('submitbuttontext'); ?></button>
                         </form>
                         <script>
-                        window.Parsley.addValidator('field4', {
-                            validateString: function(value) {
-                              var patt = new RegExp("^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$");
-                              return patt.test(value);
-                            },
-                            messages: {
-                              en:'Please enter a valid american phone number'
-                            }
-                            });
+
                             window.Parsley.addValidator('field1', {
                             validateString: function(value) {
                               var patt = new RegExp("^[a-zA-Z\s]+$");
@@ -83,7 +75,15 @@
                               en:'You Can Only Use Letters'
                             }
                             });
-
+                            window.Parsley.addValidator('field4', {
+                            validateString: function(value) {
+                              var patt = new RegExp("^(?:\([2-9]\d{2}\)\ ?|[2-9]\d{2}(?:\-?|\ ?))[2-9]\d{2}[- ]?\d{4}$");
+                              return patt.test(value);
+                            },
+                            messages: {
+                              en:'Please enter a valid american phone number'
+                            }
+                            });
 
                         </script>
                   </div>
