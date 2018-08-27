@@ -395,20 +395,21 @@
       $(document).scroll(function() {
 
   var scrollTop = $(window).scrollTop();
-        if (scrollTop >= 750 && scrollTop<1600 ) {
+
+        if (scrollTop >= document.getElementById("sect1").offsetTop-10 && scrollTop<document.getElementById("sect2").offsetTop) {
             $('#s1').addClass("active");
         }
         else{
             $('#s1').removeClass("active");
         }
-        if (scrollTop >= 1600 && scrollTop < 2320) {
+        if (scrollTop >= document.getElementById("sect2").offsetTop-10 && scrollTop < document.getElementById("sect3").offsetTop) {
             $('#s2').addClass("active");
             $('#s1').removeClass("active");
         }
         else{
             $('#s2').removeClass("active");
         }
-        if (scrollTop >= 2320 && scrollTop<3200) {
+        if (scrollTop >= document.getElementById("sect3").offsetTop-10 && scrollTop<document.getElementById("sect4").offsetTop) {
             $('#s3').addClass("active");
             $('#s2').removeClass("active");
         }
